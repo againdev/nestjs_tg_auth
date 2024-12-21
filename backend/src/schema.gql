@@ -1,0 +1,32 @@
+# ------------------------------------------------------
+# THIS FILE WAS AUTOMATICALLY GENERATED (DO NOT MODIFY)
+# ------------------------------------------------------
+
+type AuntificateResponse {
+  user: UserResponse
+}
+
+input AuthenticateInput {
+  initDataRaw: String!
+}
+
+type Mutation {
+  authenticate(input: AuthenticateInput!): Boolean!
+  refreshToken: String!
+}
+
+type Query {
+  getMe: AuntificateResponse!
+  hello: String!
+}
+
+type UserResponse {
+  allowsWriteToPm: Boolean!
+  firstName: String!
+  id: String!
+  isPremium: Boolean
+  languageCode: String
+  lastName: String
+  tgId: Float!
+  username: String
+}
