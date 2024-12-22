@@ -11,6 +11,7 @@ interface UserState {
   isPremium?: boolean;
   languageCode?: string;
   allowsWriteToPm: boolean;
+  photoUrl?: string;
   authenticated?: boolean;
 
   setUser: (user: UserResponse) => void;
@@ -35,6 +36,7 @@ export const useUserStore = create<UserState>()(
           isPremium: user.isPremium,
           languageCode: user.languageCode,
           allowsWriteToPm: user.allowsWriteToPm,
+          photoUrl: user.photoUrl,
         }),
       updateAuthenticated: (authenticated) =>
         set({

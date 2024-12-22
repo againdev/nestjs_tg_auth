@@ -28,6 +28,9 @@ export class User {
   allowsWriteToPm: boolean;
 
   @Field({ nullable: true })
+  photoUrl?: string;
+
+  @Field({ nullable: true })
   createdAt?: Date;
 
   @Field({ nullable: true })

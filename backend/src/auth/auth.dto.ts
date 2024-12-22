@@ -31,4 +31,7 @@ export class UserResponse {
 
   @Field()
   allowsWriteToPm: boolean;
+
+  @Field({ nullable: true })
+  photoUrl?: string;
 }

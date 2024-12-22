@@ -15,7 +15,7 @@ import { TypedDocumentNode as DocumentNode } from '@graphql-typed-document-node/
  */
 const documents = {
     "\n  mutation Authenticate($input: AuthenticateInput!) {\n    authenticate(input: $input)\n  }\n": types.AuthenticateDocument,
-    "\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        allowsWriteToPm\n      }\n    }\n  }\n": types.GetMeDocument,
+    "\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        photoUrl\n        allowsWriteToPm\n      }\n    }\n  }\n": types.GetMeDocument,
 };
 
 /**
@@ -39,7 +39,7 @@ export function graphql(source: "\n  mutation Authenticate($input: AuthenticateI
 /**
  * The graphql function is used to parse GraphQL queries into a document that can be used by GraphQL clients.
  */
-export function graphql(source: "\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        allowsWriteToPm\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        allowsWriteToPm\n      }\n    }\n  }\n"];
+export function graphql(source: "\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        photoUrl\n        allowsWriteToPm\n      }\n    }\n  }\n"): (typeof documents)["\n  query GetMe {\n    getMe {\n      user {\n        id\n        tgId\n        firstName\n        lastName\n        username\n        isPremium\n        languageCode\n        photoUrl\n        allowsWriteToPm\n      }\n    }\n  }\n"];
 
 export function graphql(source: string) {
   return (documents as any)[source] ?? {};

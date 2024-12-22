@@ -27,6 +27,7 @@ type UserResponse {
   isPremium: Boolean
   languageCode: String
   lastName: String
+  photoUrl: String
   tgId: Float!
   username: String
 }

@@ -11,6 +11,7 @@ export const GET_ME = gql`
         username
         isPremium
         languageCode
+        photoUrl
         allowsWriteToPm
       }
     }

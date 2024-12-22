@@ -5,6 +5,8 @@ import { useMutation, useQuery } from "@apollo/client";
 import {
   AuthenticateMutation,
   AuthenticateMutationVariables,
+  GetMeQuery,
+  GetMeQueryVariables,
 } from "@/src/gql/graphql";
 import { AUTHENTICATE } from "@/src/graphql/mutations/Authenticate";
 import { GET_ME } from "@/src/graphql/queries/GetMe";
@@ -27,8 +29,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
     loading: getMeLoading,
     error: getMeError,
     refetch,
-  } = useQuery(GET_ME);
-  const { authenticated } = useUserStore();
+  } = useQuery<GetMeQuery, GetMeQueryVariables>(GET_ME);
+  const { authenticated, setUser, updateAuthenticated } = useUserStore();
 
   const [isLoading, setIsLoading] = useState(true);
 
@@ -52,8 +54,9 @@ export function AuthProvider({ children }: AuthProviderProps) {
                 },
               },
             });
+            updateAuthenticated(true);
             await refetch();
-            useUserStore.setState({ authenticated: true });
+            setUser(getMeData.getMe.user);
           } catch (err) {
             console.log("Authentication error", err);
           }
@@ -64,7 +67,8 @@ export function AuthProvider({ children }: AuthProviderProps) {
   }, [initData, authenticated]);
 
   useEffect(() => {
-    if (getMeData && getMeData.data !== null) {
+    if (getMeData?.getMe.user) {
+      setUser(getMeData.getMe.user);
       setIsLoading(false);
     } else {
       refetch();

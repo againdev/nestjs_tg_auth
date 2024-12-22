@@ -42,6 +42,7 @@ export class AuthService {
       is_premium: initData.user.is_premium,
       language_code: initData.user.language_code,
       allows_write_to_pm: initData.user.allows_write_to_pm,
+      photo_url: initData.user.photo_url,
       start_param: initData.start_param,
     };
   }
@@ -138,6 +139,7 @@ export class AuthService {
         isPremium: user.is_premium,
         languageCode: user.language_code,
         allowsWriteToPm: user.allows_write_to_pm,
+        photoUrl: user.photo_url,
       },
       create: {
         tgId: user.id,
@@ -147,6 +149,7 @@ export class AuthService {
         isPremium: user.is_premium,
         languageCode: user.language_code,
         allowsWriteToPm: user.allows_write_to_pm,
+        photoUrl: user.photo_url,
       },
     });
 
